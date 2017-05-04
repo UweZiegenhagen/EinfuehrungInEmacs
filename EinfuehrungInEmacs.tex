@@ -9,18 +9,120 @@
 \usepackage{paralist}
 \usepackage{xcolor}
 
+\usepackage{listings}
 \usepackage{palatino}
+\usepackage{sourcecodepro}
+\usepackage{blindtext}
+
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{tikz}
+
+\usepackage[headsepline=0.5pt,footsepline=0.5pt]{scrlayer-scrpage}
+\usepackage[left=2cm,right=4cm]{geometry}
+\KOMAoptions{headwidth=1.1\textwidth,footwidth=1.1\textwidth}
+\usepackage{blindtext}
+ 
+\pagestyle{scrheadings}
+ 
+\ohead[\headmark]{\headmark}
+\ofoot[\pagemark]{\pagemark}
+\ifoot{ifoot} % inner foot
+\ihead{ihead} % inner head
+\cfoot{cfoot} % center foot
+\chead{chead} % center head
+
+
+
+\definecolor{hellgelb}{rgb}{1,1,0.8}
+\definecolor{lightgelb}{rgb}{1,1,0.8}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+
+\usepackage{textcomp}
+\lstset{%
+	language=Lisp,%	
+    float=hbp,%
+    basicstyle=\ttfamily, % \footnotesize
+    identifierstyle=\color{colIdentifier}, %
+    keywordstyle=\color{colKeys}, %
+    stringstyle=\color{colString}, %
+    commentstyle=\color{colComments}, %
+    alsoletter={\_},
+	language= {Python},%
+    columns=flexible, %
+    tabsize=2, %
+    morekeywords={},%
+    frame=single, %
+    extendedchars=true, %
+    showspaces=false, %
+    showstringspaces=false, %
+    numbers=left, %
+    numberstyle=\tiny, %
+    upquote=true,
+    breaklines=true, %
+    backgroundcolor=\color{yellow!15}, %
+    breakautoindent=true, %
+    captionpos=b%
+}
+
+\lstset{literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {~}{{\textasciitilde}}1
+}
 
 \title{Einführung in Emacs}
 \author{Uwe Ziegenhagen}
 
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\hypersetup{%
+   pdftitle={Einführung in Emacs},
+   pdfauthor={Uwe Ziegenhagen},
+   pdfcopyright={Copyright (C) 2017, Uwe Ziegenhagen},
+   pdfsubject={Einführung in Emacs},
+   pdfkeywords={Emacs},%ggf. anpassen
+   pdflicenseurl={},
+   pdfcaptionwriter={},
+   pdfcontactaddress={},
+   pdfcontactcity={},
+   pdfcontactpostcode={},
+   pdfcontactcountry={Germany},
+   pdfcontactphone={},
+   pdfcontactemail={ziegenhagen@gmail.com},
+   pdfcontacturl={http://www.uweziegenhagen.de},
+   pdflang={de},
+   pdfmetalang={de},
+    colorlinks=true,                        % false: boxed links; true: colored links
+    linkcolor=blue,                          % color of internal links
+    filecolor=cyan,                     % color of file links
+    citecolor=green,                     % color of file links
+    urlcolor=magenta                        % color of external links   
+}
+
 
 \begin{document}
 
+
 \maketitle
 
+\frontmatter
 \tableofcontents
 
+
+
+\chapter*{Vorwort}
+
+
+\mainmatter
 
 
 \chapter{Grundlagen}
@@ -29,10 +131,38 @@
 
 \section{Installation}
 
+\blindtext
+
+\begin{lstlisting}[basicstyle=\ttfamily] % <--- here
+;; distraction-free
+;;  https://nickhigham.wordpress.com/2016/01/14/distraction-free-editing-with-emacs/
+(scroll-bar-mode 0)    ; Turn off scrollbars.
+(tool-bar-mode 0)      ; Turn off toolbars.
+(fringe-mode 0)        ; Turn off left and right fringe cols.
+(menu-bar-mode 0)      ; Turn off menus.
+;; bind fullscreen toggle to f9 key
+(global-set-key (kbd "<f9>") 'toggle-frame-fullscreen)
+
+;; http://emacs.stackexchange.com/questions/2999/how-to-maximize-my-emacs-frame-on-start-up
+;; Start fullscreen (cross-platf)
+(add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
+; emacs-doctor.com/emacs-strip-tease.html
+;; Prevent the cursor from blinking
+(blink-cursor-mode 0)
+;; Don't use messages that you don't read
+(setq initial-scratch-message "")
+(setq inhibit-startup-message t)
+\end{lstlisting}
+
+
+
 
 \chapter{Org Mode}
 
 \chapter{Was sonst noch geht\ldots}
 
+
+
+\backmatter
 
 \end{document}

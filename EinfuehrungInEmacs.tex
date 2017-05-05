@@ -35,8 +35,6 @@
 \cfoot{cfoot} % center foot
 \chead{chead} % center head
 
-
-
 \definecolor{hellgelb}{rgb}{1,1,0.8}
 \definecolor{lightgelb}{rgb}{1,1,0.8}
 \definecolor{colKeys}{rgb}{0,0,1}
@@ -96,7 +94,7 @@
    pdflicenseurl={},
    pdfcaptionwriter={},
    pdfcontactaddress={},
-   pdfcontactcity={},
+   pdfcontactcity={Cologne},
    pdfcontactpostcode={},
    pdfcontactcountry={Germany},
    pdfcontactphone={},
@@ -104,11 +102,11 @@
    pdfcontacturl={http://www.uweziegenhagen.de},
    pdflang={de},
    pdfmetalang={de},
-    colorlinks=true,                        % false: boxed links; true: colored links
-    linkcolor=blue,                          % color of internal links
-    filecolor=cyan,                     % color of file links
-    citecolor=green,                     % color of file links
-    urlcolor=magenta                        % color of external links   
+    colorlinks=true,             
+    linkcolor=blue,
+    filecolor=cyan,
+    citecolor=green,
+    urlcolor=magenta
 }
 
 
@@ -118,12 +116,15 @@
 \maketitle
 
 \frontmatter
-\tableofcontents
 
+\tableofcontents
 
 
 \chapter*{Vorwort}
 
+Das vorliegende Skript soll eine Einführung in Emacs geben.
+
+Fokus auf Windows, die allermeisten Punkte lassen sich jedoch 1:1 auf andere Betriebssysteme oder Emacs-Varianten übertragen.
 
 \mainmatter
 
@@ -140,19 +141,33 @@ Richard Stallman, GNU Software Foundation
 
 GNU Emacs
 
+\section{Emacs versus VI}
+
 
 
 \section{Installation}
 
 https://www.gnu.org/software/emacs/download.html
 
-
-
 \chapter{Grundlagen der Bedienung}
 
+\section{Das eingebaute Hilfesystem}
+
+Das eingebaute Lernprogramm
+
+\section{Laden und Speichern}
+
+\section{Bewegen innerhalb der Datei und zwischen den Buffern}
+
+\section{Suchen und Ersetzen}
 
 \chapter{Konfiguration}
 
+\section{Manuelle Konfiguration von Paketen}
+
+\section{Das Emacs-Paketsystem}
+
+\section{use-package}
 
 \chapter{Org Mode}
 
@@ -161,14 +176,50 @@ https://www.gnu.org/software/emacs/download.html
 
 \chapter{Was sonst noch geht\ldots}
 
+\section{ccrypt}
+
+\section{GraphViz}
+
+\section{Emacs als E-Mail-Programm}
+
+\subsection{Emacs als RSS-Reader}
+
+
+
+\section{Sweave}
+
+\section{Spielen im Emacs}
+
+\chapter{Programmierung}
+
+\subsection{Das \enquote{Hello Emacs}-Beispiel}
+
+
+
 
 \chapter{Weitere nützliche Software-Tools}
 
-In diesem Kapitel sollen weitere nützliche Software-Tools vorgestellt werden, die im Zusammenhang mit Emacs interessant sind und von denen man zumindest gehört haben sollte. Denn \enquote{Hat man nur einen Hammer, so sieht alles wie ein Nagel aus!}
+In diesem Kapitel sollen weitere nützliche Software-Tools vorgestellt werden, die im Zusammenhang mit Emacs interessant sind und von denen man zumindest gehört haben sollte. Denn \enquote{Hat man nur einen Hammer, so sieht alles wie ein Nagel aus!}	
 
 Ergänzen oder ersetzen
 
 \section{\TeX/\LaTeX}
+
+\subsection{Geschichtliches}
+
+
+
+\subsection{Das erste \LaTeX-Dokument}
+
+
+\subsection{Eine Musterpräsentation mit \texttt{Beamer}}
+
+
+\subsection{Ein Musterbrief mit \texttt{scrlttr2}}
+
+
+\subsection{Wer mehr wissen möchte\ldots}
+
 
 Tabellensatz eigenes Buch, daher nur kurzer Überblick
 
@@ -179,6 +230,9 @@ Probiere das folgende Dokument aus und übersetze es auf der Kommandozeile.
 Schnapp Dir ein Buch.
 
 \section{sed und awk}
+
+\section{VI(M)}
+
 
 
 \section{Python}
@@ -207,6 +261,7 @@ Schnapp Dir ein Buch.
 (setq initial-scratch-message "")
 (setq inhibit-startup-message t)
 \end{lstlisting}
+
 
 
 \end{document}

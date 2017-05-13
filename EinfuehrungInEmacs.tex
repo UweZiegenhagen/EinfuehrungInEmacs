@@ -1,11 +1,18 @@
+%!TEX TS-program = Arara
+% arara: pdflatex
+% arara: biber
+% arara: pdflatex
+% arara: pdflatex
+
 \documentclass[12pt,ngerman]{scrbook}
+
+
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{booktabs}
 \usepackage{babel}
 \usepackage{graphicx}
-\usepackage{csquotes}
 \usepackage{paralist}
 \usepackage{xcolor}
 
@@ -109,6 +116,12 @@
     urlcolor=magenta
 }
 
+
+%\usepackage[style=authortitle-dw,backend=bibtex8]{biblatex}%authortitle-icomp
+\usepackage[style=authortitle-icomp,backend=biber]{biblatex}%
+\usepackage[babel,german=quotes]{csquotes}%guillemets
+
+\addbibresource{Referenzen.bib}
 
 \begin{document}
 
@@ -262,6 +275,9 @@ Schnapp Dir ein Buch.
 (setq inhibit-startup-message t)
 \end{lstlisting}
 
+\nocite{*}
+
+\printbibliography 
 
 
 \end{document}

@@ -6,8 +6,6 @@
 
 \documentclass[12pt,ngerman]{scrbook}
 
-
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{booktabs}
@@ -18,7 +16,7 @@
 
 \usepackage{listings}
 \usepackage{palatino}
-\usepackage{sourcecodepro}
+%\usepackage{sourcecodepro}
 \usepackage{blindtext}
 
 \setlength{\parindent}{0pt}
@@ -135,28 +133,33 @@
 
 \chapter*{Vorwort}
 
-Das vorliegende Skript soll eine Einführung in Emacs geben.
+Das vorliegende Skript soll eine Einführung in Emacs und nützliche Emacs-Pakete geben. Mein Fokus liegt dabei auf Windows, sofern möglich werden auch die entsprechenden Hinweise für Linux und Mac OS X gegeben. Die meisten Punkte lassen sich jedoch eins zu eins auf andere Betriebssysteme wie Linux und Mac OS X oder Emacs-Derivate übertragen. 
 
-Fokus auf Windows, die allermeisten Punkte lassen sich jedoch 1:1 auf andere Betriebssysteme oder Emacs-Varianten übertragen.
+Dieser Text ist aus der Erkenntnis entstanden, dass es anscheinend aktuell kein Emacs-Buch gibt, das die aktuellen Entwicklungen im Emacs-Universum behandelt. Beschreibungen von \texttt{use-package} und anderen Paketen finden sich nur online und meist auch nur auf Englisch. 
+
+Tastenkürzel, Namen in SmallCaps.
+
+Dieses Buch ist in \LaTeX\ gesetzt worden, dem freien Satzprogramm. 
 
 \mainmatter
 
+\chapter{Geschichtliches}
+
+Emacs, die Abkürzung steht für \enquote{Editor MACroS}, war ursprünglich kein eigenständiger Editor, sondern lediglich eine Sammlung von Makros für TECO. TECO, was ursprünglich \enquote{\textbf{T}ape \textbf{E}ditor and \textbf{CO}rrector} stand, später jedoch zu \enquote{\textbf{T}ext \textbf{E}ditor and \textbf{CO}rrector} wurde, wurde 1962/63 als Editor für Lochstreifen entwickelt. Die Bedienung von TECO war dabei nicht auf Benutzerfreundlichkeit ausgelegt, es galt viel mehr, mit möglichst wenigen Tastendrücken den Editor zu steuern. Ebenso wie Emacs gibt es auch TECO noch heute, unter \url{http://almy.us/teco.html} kann der interessierte Leser Binaries für Windows, Linux und Mac OS~X herunterladen. 
+
+1972 begann dann die Entwicklung von Emacs\footnote{siehe \url{https://www.emacswiki.org/emacs/EmacsHistory}} am MIT\footnote{Massachusetts Institute of Technology}, als Carl Mikkelson TECO um Funktionen zur Anzeige von Textänderungen auf dem Bildschirm erweiterte. Was heute als selbstverständlich gilt, war damals keineswegs so; es gab sogar Editoren, die die Ergebnisse der Editier-Operationen auf einem angeschlossenen Drucker ausgaben.
+
+Im Jahr 1974 schuf Richard Stallman dann die Möglichkeit, Makros in TECO auszuführen, diese Möglichkeit wurde von den TECO-Nutzern am MIT auch rege genutzt. Die erstellten Makros wurden von Richard Stallman 1976 gesammelt und um Funktionen zur Selbstdokumentation und Erweiterbarkeit ergänzt. TECOEmacs wurde anschließend zum Standard-Editor auf den ITS-Systemen\footnote{\enquote{Incompatible TimeSharing System}} Maschinen des MIT.
+
+In den folgenden Jahren entstanden verschiedene Emacs-Derivate, von denen MulticsEmacs von Bernard Greenberg erwähnenswert ist. MultiEmacs war in LISP geschrieben, auch Erweiterungen waren in LISP geschrieben. Die Wahl von LISP bot einfachere Erweiterungsmöglichkeiten als je zuvor und wurde daher von den meisten folgenden Emacs-Generationen genutzt. 
+
+1984 erblickte GNU Emacs das Licht der Welt, als erstes Produkt der GNU Software Foundation. Geschrieben von Richard Stallman in C nutzte er EmacsLisp als Sprache für Erweiterungen. Die erste weithin verfügbare Version war dann Emacs 15.34, die 1985 erschien und bald der Standard für Emacs unter Unix war.
+
+Heute, im Jahr 2017, ist Emacs in Version 25.2 angekommen, diese Version ist auch die Basis für dieses Skript.
+
+Einige Worte noch zum immerwährenden Kampf zwischen Emacs und VI/VIM: Wenngleich ich auch Emacs jedem VI bzw. VIM vorziehe (sonst würde dieses Skript letztere behandeln), so sind Grundkenntnisse in VI oder ED (dem Vorgänger von VI) ratsam. Im Appendix findet sich daher ein kurzer Abriss zu den wichtigsten Funktionen.
 
 \chapter{Grundlagen}
-
-\section{Geschichtliches}
-
-kein einzelner Editor, Familie von Editoren. 
-
-eierlegende Wollmilchsau
-
-Richard Stallman, GNU Software Foundation
-
-GNU Emacs
-
-\section{Emacs versus VI}
-
-
 
 \section{Installation}
 
@@ -186,7 +189,6 @@ Das eingebaute Lernprogramm
 
 \chapter{Auc\TeX}
 
-
 \chapter{Was sonst noch geht\ldots}
 
 \section{ccrypt}
@@ -196,8 +198,6 @@ Das eingebaute Lernprogramm
 \section{Emacs als E-Mail-Programm}
 
 \subsection{Emacs als RSS-Reader}
-
-
 
 \section{Sweave}
 

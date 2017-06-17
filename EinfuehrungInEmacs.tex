@@ -1,8 +1,8 @@
 %!TEX TS-program = Arara
-% arara: pdflatex
+% arara: lualatex
 % arara: biber
-% arara: pdflatex
-% arara: pdflatex
+% arara: lualatex
+% arara: lualatex
 
 \documentclass[12pt,ngerman]{scrbook}
 
@@ -15,8 +15,9 @@
 \usepackage{xcolor}
 
 \usepackage{listings}
-\usepackage{palatino}
-%\usepackage{sourcecodepro}
+\usepackage{libertine}
+%\usepackage{palatino}
+%\usepackage[scale=0.85]{sourcecodepro}
 \usepackage{blindtext}
 
 \setlength{\parindent}{0pt}
@@ -26,8 +27,8 @@
 \usepackage{mdframed}
 \usepackage{tikz}
 
-\usepackage[headsepline=0.5pt,footsepline=0.5pt]{scrlayer-scrpage}
-\usepackage[left=2cm,right=4cm]{geometry}
+\usepackage[headsepline=0.5pt,footsepline=0.0pt]{scrlayer-scrpage}
+%\usepackage[left=2cm,right=4cm]{geometry}
 \KOMAoptions{headwidth=1.1\textwidth,footwidth=1.1\textwidth}
 \usepackage{blindtext}
  
@@ -115,6 +116,9 @@
 }
 
 
+\usepackage[]{tcolorbox}
+%\usepackage[]{menukeys}
+
 %\usepackage[style=authortitle-dw,backend=bibtex8]{biblatex}%authortitle-icomp
 \usepackage[style=authortitle-icomp,backend=biber]{biblatex}%
 \usepackage[babel,german=quotes]{csquotes}%guillemets
@@ -133,13 +137,34 @@
 
 \chapter*{Vorwort}
 
-Das vorliegende Skript soll eine Einführung in Emacs und nützliche Emacs-Pakete geben. Mein Fokus liegt dabei auf Windows, sofern möglich werden auch die entsprechenden Hinweise für Linux und Mac OS X gegeben. Die meisten Punkte lassen sich jedoch eins zu eins auf andere Betriebssysteme wie Linux und Mac OS X oder Emacs-Derivate übertragen. 
+Der vorliegende Text ist aus der Erkenntnis entstanden, dass es anscheinend kein aktuelles Emacs-Buch gibt, das die aktuellen Entwicklungen im Emacs-Universum behandelt. Beschreibungen von \texttt{use-package} und anderen Paketen finden sich oft nur online und meist auch nur auf Englisch. 
 
-Dieser Text ist aus der Erkenntnis entstanden, dass es anscheinend aktuell kein Emacs-Buch gibt, das die aktuellen Entwicklungen im Emacs-Universum behandelt. Beschreibungen von \texttt{use-package} und anderen Paketen finden sich nur online und meist auch nur auf Englisch. 
+Das Skript soll daher eine Einführung in Emacs und nützliche Emacs-Pakete geben. Der Fokus liegt dabei auf Windows, da ich mit Emacs hauptsächlich unter Windows arbeite,  sofern möglich werden aber auch die entsprechenden Hinweise für Linux und Mac OS X gegeben. 
 
-Tastenkürzel, Namen in SmallCaps.
+\section*{Konventionen}
 
-Dieses Buch ist in \LaTeX\ gesetzt worden, dem freien Satzprogramm. 
+Folgende Konventionen gelten für den Text:
+
+\textit{Kursiv} Neue Begriffe, Dateinamen und Dateierweiterungen werden \textit{kursiv} dargestellt.
+
+\texttt{nichtproportional} Nichtproportionale Schrift, also \enquote{Schreibmaschinenschrift}, wird für Code-Listings benutzt.
+
+\texttt{\bfseries nichtproportional fett} Nichtproportionale fette Schrift wird für Befehle genutzt, die der Leser über die Tastatur eingibt.
+
+\texttt{\textit{nichtproportional kursiv}} Nichtproportionale kursive Schrift wird für Werte genutzt, die vom Nutzer vorzugeben sind oder für Werte, die sich aus dem Kontext ergeben.
+
+%\keys{Strg + x}
+
+Zusatzinformationen, die mit Emacs nur am Rand zu tun haben, werden in grauen Boxen dargestellt.
+
+
+\section*{Die Technik hinter dem Text}
+
+Dieses Buch ist in \LaTeX\ gesetzt worden, dem freien Satzprogramm, das ich jedem ans Herz legen möchte, der effizient komplexe oder längere Texte verfässt. Zur Verwaltung der Dateien nutze ich github \url{https://www.github.com}), das ich mittels \textit{TortoiseSVN} bediene. 
+
+Als Schriftart wird die freie Libertine-Schrift genutzt.
+
+\LKeyTab
 
 \mainmatter
 
@@ -155,6 +180,12 @@ In den folgenden Jahren entstanden verschiedene Emacs-Derivate, von denen Multic
 
 1984 erblickte GNU Emacs das Licht der Welt, als erstes Produkt der GNU Software Foundation. Geschrieben von Richard Stallman in C nutzte er EmacsLisp als Sprache für Erweiterungen. Die erste weithin verfügbare Version war dann Emacs 15.34, die 1985 erschien und bald der Standard für Emacs unter Unix war.
 
+\begin{tcolorbox}[title={Wissen: Richard Stallman und die GNU Foundation},arc=0pt]
+dfsfs
+
+\end{tcolorbox}
+
+
 Heute, im Jahr 2017, ist Emacs in Version 25.2 angekommen, diese Version ist auch die Basis für dieses Skript.
 
 Einige Worte noch zum immerwährenden Kampf zwischen Emacs und VI/VIM: Wenngleich ich auch Emacs jedem VI bzw. VIM vorziehe (sonst würde dieses Skript letztere behandeln), so sind Grundkenntnisse in VI oder ED (dem Vorgänger von VI) ratsam. Im Appendix findet sich daher ein kurzer Abriss zu den wichtigsten Funktionen.
@@ -164,6 +195,11 @@ Einige Worte noch zum immerwährenden Kampf zwischen Emacs und VI/VIM: Wenngleic
 \section{Installation}
 
 https://www.gnu.org/software/emacs/download.html
+
+Was ist enthalten?
+
+Dateistruktur
+
 
 \chapter{Grundlagen der Bedienung}
 

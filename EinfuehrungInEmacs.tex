@@ -31,7 +31,8 @@
 %\usepackage[left=2cm,right=4cm]{geometry}
 \KOMAoptions{headwidth=1.1\textwidth,footwidth=1.1\textwidth}
 \usepackage{blindtext}
- 
+\usepackage[]{todonotes} 
+
 \pagestyle{scrheadings}
  
 \ohead[\headmark]{\headmark}
@@ -166,11 +167,14 @@ Als Schriftart wird die freie Libertine-Schrift genutzt.
 
 \LKeyTab
 
+h\url{h}h\url{h}h\url{h}h\url{h}h\url{h}h\url{h}
+
+
 \mainmatter
 
 \chapter{Geschichtliches}
 
-Emacs, die Abkürzung steht für \enquote{Editor MACroS}, war ursprünglich kein eigenständiger Editor, sondern lediglich eine Sammlung von Makros für TECO. TECO, was ursprünglich \enquote{\textbf{T}ape \textbf{E}ditor and \textbf{CO}rrector} stand, später jedoch zu \enquote{\textbf{T}ext \textbf{E}ditor and \textbf{CO}rrector} wurde, wurde 1962/63 als Editor für Lochstreifen entwickelt. Die Bedienung von TECO war dabei nicht auf Benutzerfreundlichkeit ausgelegt, es galt viel mehr, mit möglichst wenigen Tastendrücken den Editor zu steuern. Ebenso wie Emacs gibt es auch TECO noch heute, unter \url{http://almy.us/teco.html} kann der interessierte Leser Binaries für Windows, Linux und Mac OS~X herunterladen. 
+Emacs, die Abkürzung steht für \enquote{Editor MACroS}\footnote{nicht für \enquote{Escape-Meta-Alt-Control-Shift}}, war ursprünglich kein eigenständiger Editor, sondern lediglich eine Sammlung von Makros für TECO. TECO, was ursprünglich \enquote{\textbf{T}ape \textbf{E}ditor and \textbf{CO}rrector} stand, später jedoch zu \enquote{\textbf{T}ext \textbf{E}ditor and \textbf{CO}rrector} wurde, wurde 1962/63 als Editor für Lochstreifen entwickelt. Die Bedienung von TECO war dabei nicht auf Benutzerfreundlichkeit ausgelegt, es galt viel mehr, mit möglichst wenigen Tastendrücken den Editor zu steuern. Ebenso wie Emacs gibt es auch TECO noch heute, unter \url{http://almy.us/teco.html} kann der interessierte Leser Binaries für Windows, Linux und Mac OS~X herunterladen. 
 
 1972 begann dann die Entwicklung von Emacs\footnote{siehe \url{https://www.emacswiki.org/emacs/EmacsHistory}} am MIT\footnote{Massachusetts Institute of Technology}, als Carl Mikkelson TECO um Funktionen zur Anzeige von Textänderungen auf dem Bildschirm erweiterte. Was heute als selbstverständlich gilt, war damals keineswegs so; es gab sogar Editoren, die die Ergebnisse der Editier-Operationen auf einem angeschlossenen Drucker ausgaben.
 
@@ -188,17 +192,52 @@ dfsfs
 
 Heute, im Jahr 2017, ist Emacs in Version 25.2 angekommen, diese Version ist auch die Basis für dieses Skript.
 
-Einige Worte noch zum immerwährenden Kampf zwischen Emacs und VI/VIM: Wenngleich ich auch Emacs jedem VI bzw. VIM vorziehe (sonst würde dieses Skript letztere behandeln), so sind Grundkenntnisse in VI oder ED (dem Vorgänger von VI) ratsam. Im Appendix findet sich daher ein kurzer Abriss zu den wichtigsten Funktionen.
+Einige Worte noch zum immerwährenden Kampf\footnote{siehe \url{https://de.wikipedia.org/wiki/Editor_War}} zwischen Emacs und VI/VIM: Wenngleich ich auch Emacs jedem VI bzw. VIM vorziehe (sonst würde dieses Skript letztere behandeln), so sind Grundkenntnisse in VI oder ED (dem Vorgänger von VI) ratsam. Im Appendix findet sich daher ein kurzer Abriss zu den wichtigsten Funktionen.
 
 \chapter{Grundlagen}
 
 \section{Installation}
 
-https://www.gnu.org/software/emacs/download.html
+Die Installation von Emacs ist recht einfach. Man besucht die Downloadseite von Emacs unter \url{https://www.gnu.org/software/emacs/download.html}, wo verschiedene Links auf GNU Spiegelserver, u.\,a. zum Beispiel \url{https://www.gnu.org/software/emacs/download.html} angegeben sind. Beim Besuch einer dieser Seiten wird das entsprechende Verzeichnis des Webservers aufgelistet, hier wählt man dann einfach die Version mit der höchsten Versionsnummer für das eigene Betriebssystem. Nutzer der 32-Bit-Version von Windows wählen die ZIP-Datei, die auf \enquote{i686} endet, Nutzer der 64-Bit-Version die ZIP-Datei, die auf \enquote{64} endet.
 
-Was ist enthalten?
+Emacs ist komplett portabel, nach dem Download der ZIP-Datei entpackt man diese in ein Verzeichnis der Wahl, das sich auch auf einem USB-Stick oder Netzlaufwerk befinden kann.
+Der übliche Installationsweg wird jedoch die lokale Installation sein, persönlich installiere ich üblicherweise nach \texttt{C:\textbackslash}. Nach dem Entpacken enthält das Verzeichnis dann die folgenden Unterordner:
 
-Dateistruktur
+\begin{description}
+\item[bin] Dieses Verzeichnis enthält die ausführbaren Dateien von Emacs:
+
+\begin{description}
+\item[addpm.exe] Dient dazu, Emacs dem Startmenü unter Windows hinzuzufügen.
+\item[ctags.exe] Werkzeug, um sogenannte \enquote{Tag}-Dateien zu erstellen \todo{Erklären}
+\item[ebrowse.exe] Werkzeug, um C++ Browse-Informationen zu erstellen.
+\item[emacs.exe] die eigentliche ausführbare Datei, die sowohl im Textmodus (mittels Kommandozeilenoption \texttt{-nw}) als auch im Fenstermodus läuft. 
+\item[emacsclient.exe] Ein Kommandozeilen-Client, um mit einem Emacs-Prozess zu kommunizieren.
+\item[emacsclientw.exe] Eine Client-Version, die kein Kommandozeilen-Fenster beim Start öffnet.
+\item[etags]
+\item[runemacs] Ein Wrapper für die \texttt{emacs.exe}, die kein Kommandozeilen-Fenster beim Start öffnet.
+\end{description}
+
+
+\item[libexec] Enthält eine Verzeichnisstruktur mit weiteren ausführbaren Dateien.
+
+\begin{description}
+\item[cmdproxy.exe] Internes Emacs-Werkzeug, um Probleme mit den Shells der verschiedenen Windows-Version zu umgehen.
+\item[ddeclient.exe] Werkzeug, um mit DDE-Servern zu interagieren. Wer den Begriff nicht kennt, wird dies vermutlich auch nie müssen.
+\item[hexl.exe] Werkzeug zum Erstellen von Hex-Dumps, also Abbildern von Binärdateien.
+\item[movemail.exe] Hilfswerkzeug zum Verschieben von E-Mails von einem Server in eine lokale Mailbox.
+\item[profile.exe] Hilfsprogramm zum Profilen von Lisp-Code
+\item[update-game-score.exe] Werkzeug zum Update von Emacs-Spielstanddateien.
+\end{description}
+
+\item[share]
+\item[var]
+\end{description}
+
+\section{Deinstallation}
+
+Sollte der Leser jemals in die Verlegenheit kommen, Emacs löschen zu müssen, so reicht es aus, das komplette Installationsverzeichnis zu löschen. Da Emacs wie oben erwähnt komplett portabel ist, werden keine Informationen in irgendwelche System-Verzeichnisse geschrieben.
+
+Hat man mit \texttt{addpm.exe} Einträge zum Startmenü hinzugefügt, so lassen sich diese über \texttt{regedit} im \texttt{Software/GNU/Emacs} Ast der Registry löschen. Je nach Art der Installation (ob als Admin oder nicht), findet man diesen Ast in \verb|HKEY_LOCAL_MACHINE| oder \verb|HKEY_CURRENT_USER|.
 
 
 \chapter{Grundlagen der Bedienung}

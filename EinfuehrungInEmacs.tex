@@ -138,9 +138,13 @@
 
 \chapter*{Vorwort}
 
-Der vorliegende Text ist aus der Erkenntnis entstanden, dass es anscheinend kein aktuelles Emacs-Buch gibt, das die aktuellen Entwicklungen im Emacs-Universum behandelt. Beschreibungen von \texttt{use-package} und anderen Paketen finden sich oft nur online und meist auch nur auf Englisch. 
+Der vorliegende Text ist aus der Erkenntnis entstanden, dass es anscheinend kein aktuelles Emacs-Buch gibt, das die aktuellen Entwicklungen im Emacs-Universum behandelt. 
+Beschreibungen von \texttt{use-package} und anderen Paketen finden sich oft nur online und meist auch nur auf Englisch. 
 
-Das Skript soll daher eine Einführung in Emacs und nützliche Emacs-Pakete geben. Der Fokus liegt dabei auf Windows, da ich mit Emacs hauptsächlich unter Windows arbeite,  sofern möglich werden aber auch die entsprechenden Hinweise für Linux und Mac OS X gegeben. 
+Das Skript soll daher eine Einführung in Emacs und nützliche Emacs-Pakete geben. 
+Der Fokus liegt dabei auf Windows, da ich mit Emacs hauptsächlich unter Windows arbeite,  sofern möglich werden aber auch die entsprechenden Hinweise für Linux und Mac OS X gegeben. 
+
+Es können nicht alle möglichen Befehle und Befehlskombinationen vorgestellt werden, die Emacs und die verschiedenen Emacs-Pakete bieten, dazu sind es schlichtweg zu viele. Vielmehr möchte ich die wichtigsten Befehle zeigen, die man im Alltag benötigt.
 
 \section*{Konventionen}
 
@@ -154,35 +158,40 @@ Folgende Konventionen gelten für den Text:
 
 \texttt{\textit{nichtproportional kursiv}} Nichtproportionale kursive Schrift wird für Werte genutzt, die vom Nutzer vorzugeben sind oder für Werte, die sich aus dem Kontext ergeben.
 
-%\keys{Strg + x}
+Mittels \LKeyStrgX{X}  werden Tastensequenzen dargestellt, das \enquote{+} bedeutet hier, das die \LKeyStrg-Taste gedrückt sein muss, während man \enquote{X} drückt.
 
-Zusatzinformationen, die mit Emacs nur am Rand zu tun haben, werden in grauen Boxen dargestellt.
-
+Zusatzinformationen, die mit Emacs eher am Rand zu tun haben, werden in grauen Boxen dargestellt.
 
 \section*{Die Technik hinter dem Text}
 
 Dieses Buch ist in \LaTeX\ gesetzt worden, dem freien Satzprogramm, das ich jedem ans Herz legen möchte, der effizient komplexe oder längere Texte verfässt. Zur Verwaltung der Dateien nutze ich github \url{https://www.github.com}), das ich mittels \textit{TortoiseSVN} bediene. 
 
-Als Schriftart wird die freie Libertine-Schrift genutzt.
+Als Schriftart wird die freie Linux Libertine-Schrift\footnote{\url{http://www.linuxlibertine.org/}} genutzt, für die Darstellung der Tastendrücke die Biolinum Keycaps.
 
-\LKeyTab
-
-h\url{h}h\url{h}h\url{h}h\url{h}h\url{h}h\url{h}
 
 
 \mainmatter
 
 \chapter{Geschichtliches}
 
-Emacs, die Abkürzung steht für \enquote{Editor MACroS}\footnote{nicht für \enquote{Escape-Meta-Alt-Control-Shift}}, war ursprünglich kein eigenständiger Editor, sondern lediglich eine Sammlung von Makros für TECO. TECO, was ursprünglich \enquote{\textbf{T}ape \textbf{E}ditor and \textbf{CO}rrector} stand, später jedoch zu \enquote{\textbf{T}ext \textbf{E}ditor and \textbf{CO}rrector} wurde, wurde 1962/63 als Editor für Lochstreifen entwickelt. Die Bedienung von TECO war dabei nicht auf Benutzerfreundlichkeit ausgelegt, es galt viel mehr, mit möglichst wenigen Tastendrücken den Editor zu steuern. Ebenso wie Emacs gibt es auch TECO noch heute, unter \url{http://almy.us/teco.html} kann der interessierte Leser Binaries für Windows, Linux und Mac OS~X herunterladen. 
+Emacs, die Abkürzung steht für \enquote{Editor MACroS}\footnote{nicht für \enquote{Escape-Meta-Alt-Control-Shift}}, war ursprünglich kein eigenständiger Editor, sondern lediglich eine Sammlung von Makros für TECO. 
+TECO, was ursprünglich \enquote{\textbf{T}ape \textbf{E}ditor and \textbf{CO}rrector} stand, später jedoch zu \enquote{\textbf{T}ext \textbf{E}ditor and \textbf{CO}rrector} wurde, wurde 1962/63 als Editor für Lochstreifen entwickelt. 
+Die Bedienung von TECO war dabei nicht auf Benutzerfreundlichkeit ausgelegt, es galt viel mehr, mit möglichst wenigen Tastendrücken den Editor zu steuern. 
+Ebenso wie Emacs gibt es auch TECO noch heute, unter \url{http://almy.us/teco.html} kann der interessierte Leser Binaries für Windows, Linux und Mac OS~X herunterladen. 
 
-1972 begann dann die Entwicklung von Emacs\footnote{siehe \url{https://www.emacswiki.org/emacs/EmacsHistory}} am MIT\footnote{Massachusetts Institute of Technology}, als Carl Mikkelson TECO um Funktionen zur Anzeige von Textänderungen auf dem Bildschirm erweiterte. Was heute als selbstverständlich gilt, war damals keineswegs so; es gab sogar Editoren, die die Ergebnisse der Editier-Operationen auf einem angeschlossenen Drucker ausgaben.
+1972 begann dann die Entwicklung von Emacs\footnote{siehe \url{https://www.emacswiki.org/emacs/EmacsHistory}} am MIT\footnote{Massachusetts Institute of Technology}, als Carl Mikkelson TECO um Funktionen zur Anzeige von Textänderungen auf dem Bildschirm erweiterte. 
+Was heute als selbstverständlich gilt, war damals keineswegs so: die übliche Art, editierte Text zu sehen zu bekommen, war die Ausgabe auf einem angeschlossenen Drucker.
 
-Im Jahr 1974 schuf Richard Stallman dann die Möglichkeit, Makros in TECO auszuführen, diese Möglichkeit wurde von den TECO-Nutzern am MIT auch rege genutzt. Die erstellten Makros wurden von Richard Stallman 1976 gesammelt und um Funktionen zur Selbstdokumentation und Erweiterbarkeit ergänzt. TECOEmacs wurde anschließend zum Standard-Editor auf den ITS-Systemen\footnote{\enquote{Incompatible TimeSharing System}} Maschinen des MIT.
+Im Jahr 1974 schuf Richard Stallman dann die Möglichkeit, Makros in TECO auszuführen, diese Möglichkeit wurde von den TECO-Nutzern am MIT auch rege genutzt. 
+Die erstellten Makros wurden von Richard Stallman 1976 gesammelt und um Funktionen zur Selbstdokumentation und Erweiterbarkeit ergänzt. 
+TECOEmacs wurde anschließend zum Standard-Editor auf den ITS-Systemen\footnote{\enquote{Incompatible TimeSharing System}} Maschinen des MIT.
 
-In den folgenden Jahren entstanden verschiedene Emacs-Derivate, von denen MulticsEmacs von Bernard Greenberg erwähnenswert ist. MultiEmacs war in LISP geschrieben, auch Erweiterungen waren in LISP geschrieben. Die Wahl von LISP bot einfachere Erweiterungsmöglichkeiten als je zuvor und wurde daher von den meisten folgenden Emacs-Generationen genutzt. 
+In den folgenden Jahren entstanden verschiedene Emacs-Derivate, von denen MulticsEmacs von Bernard Greenberg erwähnenswert ist.
+MultiEmacs war in LISP geschrieben, auch Erweiterungen waren in LISP geschrieben. Die Wahl von LISP bot einfachere Erweiterungsmöglichkeiten als je zuvor und wurde daher von den meisten folgenden Emacs-Generationen genutzt. 
 
-1984 erblickte GNU Emacs das Licht der Welt, als erstes Produkt der GNU Software Foundation. Geschrieben von Richard Stallman in C nutzte er EmacsLisp als Sprache für Erweiterungen. Die erste weithin verfügbare Version war dann Emacs 15.34, die 1985 erschien und bald der Standard für Emacs unter Unix war.
+1984 erblickte GNU Emacs das Licht der Welt, als erstes Produkt der GNU Software Foundation. 
+Geschrieben von Richard Stallman in C nutzte er EmacsLisp als Sprache für Erweiterungen.
+Die erste weithin verfügbare Version war dann Emacs 15.34, die 1985 erschien und bald der Standard für Emacs unter Unix war.
 
 \begin{tcolorbox}[title={Wissen: Richard Stallman und die GNU Foundation},arc=0pt]
 dfsfs
@@ -192,13 +201,17 @@ dfsfs
 
 Heute, im Jahr 2017, ist Emacs in Version 25.2 angekommen, diese Version ist auch die Basis für dieses Skript.
 
-Einige Worte noch zum immerwährenden Kampf\footnote{siehe \url{https://de.wikipedia.org/wiki/Editor_War}} zwischen Emacs und VI/VIM: Wenngleich ich auch Emacs jedem VI bzw. VIM vorziehe (sonst würde dieses Skript letztere behandeln), so sind Grundkenntnisse in VI oder ED (dem Vorgänger von VI) ratsam. Im Appendix findet sich daher ein kurzer Abriss zu den wichtigsten Funktionen.
+Einige Worte noch zum immerwährenden Kampf\footnote{siehe \url{https://de.wikipedia.org/wiki/Editor_War}} zwischen Emacs und VI/VIM: Wenngleich ich auch Emacs jedem VI bzw. VIM vorziehe (sonst würde dieses Skript letztere behandeln), so sind Grundkenntnisse in VI oder ED (dem Vorgänger von VI) ratsam. 
+Im Appendix findet sich daher ein kurzer Abriss zu den wichtigsten Funktionen.
 
 \chapter{Grundlagen}
 
 \section{Installation}
 
-Die Installation von Emacs ist recht einfach. Man besucht die Downloadseite von Emacs unter \url{https://www.gnu.org/software/emacs/download.html}, wo verschiedene Links auf GNU Spiegelserver, u.\,a. zum Beispiel \url{https://www.gnu.org/software/emacs/download.html} angegeben sind. Beim Besuch einer dieser Seiten wird das entsprechende Verzeichnis des Webservers aufgelistet, hier wählt man dann einfach die Version mit der höchsten Versionsnummer für das eigene Betriebssystem. Nutzer der 32-Bit-Version von Windows wählen die ZIP-Datei, die auf \enquote{i686} endet, Nutzer der 64-Bit-Version die ZIP-Datei, die auf \enquote{64} endet.
+Die Installation von Emacs ist recht einfach. 
+Man besucht die Downloadseite von Emacs unter \url{https://www.gnu.org/software/emacs/download.html}, wo verschiedene Links auf GNU Spiegelserver, u.\,a. zum Beispiel \url{https://www.gnu.org/software/emacs/download.html} angegeben sind. 
+Beim Besuch einer dieser Seiten wird das entsprechende Verzeichnis des Webservers aufgelistet, hier wählt man dann einfach die Version mit der höchsten Versionsnummer für das eigene Betriebssystem. 
+Nutzer der 32-Bit-Version von Windows wählen die ZIP-Datei, die auf \enquote{i686} endet, Nutzer der 64-Bit-Version die ZIP-Datei, die auf \enquote{64} endet.
 
 Emacs ist komplett portabel, nach dem Download der ZIP-Datei entpackt man diese in ein Verzeichnis der Wahl, das sich auch auf einem USB-Stick oder Netzlaufwerk befinden kann.
 Der übliche Installationsweg wird jedoch die lokale Installation sein, persönlich installiere ich üblicherweise nach \texttt{C:\textbackslash}. Nach dem Entpacken enthält das Verzeichnis dann die folgenden Unterordner:
@@ -207,7 +220,7 @@ Der übliche Installationsweg wird jedoch die lokale Installation sein, persönl
 \item[bin] Dieses Verzeichnis enthält die ausführbaren Dateien von Emacs:
 
 \begin{description}
-\item[addpm.exe] Dient dazu, Emacs dem Startmenü unter Windows hinzuzufügen.
+\item[addpm.exe] fügt Emacs dem Startmenü unter Windows hinzu
 \item[ctags.exe] Werkzeug, um sogenannte \enquote{Tag}-Dateien zu erstellen \todo{Erklären}
 \item[ebrowse.exe] Werkzeug, um C++ Browse-Informationen zu erstellen.
 \item[emacs.exe] die eigentliche ausführbare Datei, die sowohl im Textmodus (mittels Kommandozeilenoption \texttt{-nw}) als auch im Fenstermodus läuft. 
@@ -229,30 +242,111 @@ Der übliche Installationsweg wird jedoch die lokale Installation sein, persönl
 \item[update-game-score.exe] Werkzeug zum Update von Emacs-Spielstanddateien.
 \end{description}
 
-\item[share]
-\item[var]
+\item[share] Enthält die folgenden Unterordner:
+
+\begin{description}
+\item[appdata] enthält nichts
+\item[applications] enthält nichts
+\item[emacs] Beinhaltet weitere Unterordner u.\,a. mit den zentralen Lisp-Verzeichnissen.
+\item[icons] Emacs Icon Dateien in verschiedenen Größen und Formaten.
+\item[info] Enthält die Info-Seiten für das Emacs-eigene Hypertext-Hilfesystem. Siehe \todo{Link}
+\item[man] Enthält die Emacs-spezifischen Man-Pages, also Hilfe- und Dokumentationsseiten. 
+\end{description}
+
+
+
+\item[var] Enthält weitere Unterordner mit den Spielstand-Dateien für Tetris und Snake, siehe Abschnitt \ref{sec:spielen} auf Seite \pageref{sec:spielen}.
 \end{description}
 
 \section{Deinstallation}
 
 Sollte der Leser jemals in die Verlegenheit kommen, Emacs löschen zu müssen, so reicht es aus, das komplette Installationsverzeichnis zu löschen. Da Emacs wie oben erwähnt komplett portabel ist, werden keine Informationen in irgendwelche System-Verzeichnisse geschrieben.
 
-Hat man mit \texttt{addpm.exe} Einträge zum Startmenü hinzugefügt, so lassen sich diese über \texttt{regedit} im \texttt{Software/GNU/Emacs} Ast der Registry löschen. Je nach Art der Installation (ob als Admin oder nicht), findet man diesen Ast in \verb|HKEY_LOCAL_MACHINE| oder \verb|HKEY_CURRENT_USER|.
+Hat man mit \texttt{addpm.exe} Einträge zum Startmenü hinzugefügt, so lassen sich diese über \texttt{regedit} im \texttt{Software/GNU/Emacs} Ast der Registry löschen. 
+Je nach Art der Installation (ob diese als Admin erfolte oder nicht), findet man diesen Ast in \verb|HKEY_LOCAL_MACHINE| oder \verb|HKEY_CURRENT_USER|.
 
 
 \chapter{Grundlagen der Bedienung}
 
-\section{Das eingebaute Hilfesystem}
+In diesem Kapitel wird die grundlegende Bedienung von Emacs vorgestellt. 
+Anpassungen, die die \enquote{User Experience} mit Emacs deutlich verbessern, werden in den folgenden Kapiteln behandelt, dieses Kapitel soll daher die \enquote{reine Lehre} vermitteln.
 
-Das eingebaute Lernprogramm
+\section{Von Buffern und anderen Dingen\ldots}
+
+Im Rahmen dieses Textes wird häufiger von \enquote{Buffern} und anderen Dingen die Rede sein, daher ist es sinnvoll, diese an zentraler Stelle (also hier) einzuführen.
+
+Text, den man in Emacs editiert, landet in einem sogenannten \enquote{Buffer}. Ein Buffer ist keine Datei, sondern ein Stück Speicher, das Emacs zum Arbeiten nutzt. Zu jedem Zeitpunkt ist nur ein Buffer aktuell, diesen werden wir im folgenden auch als den \enquote{aktuellen Buffer} bezeichnen. Befehle zur Manipulation von Buffern werden in den nächsten Abschnitten vorgestellt.
+
+Die maximale Größe eines Buffers hängt von der Architektur des Rechners ab: bei 32-Bit-Rechnern beträgt sie $2^29 - 2$ Byte, also rund 215 MB, bei 64-Bit-Rechnern hingegen $2^61-2$ Byte, also mehr als 2300 Petabyte. Zusätzlich limitiert natürlich auch das verfügbare RAM die Buffer-Größe.
+
+\section{Starten und Beenden}
+
+Emacs kann man auf verschiedene Arten starten:
+
+\begin{itemize}
+	\item per Mausklick auf \texttt{runemacs.exe} im \texttt{emacs/bin} Verzeichnis, im Gegensatz zum Mausklick auf \texttt{emacs.exe} wird hier kein Interpreter-Fenster (früher \enquote{DOS}-Fenster) erzeugt.
+	\item aus der Kommandozeile, wenn man vorher per \texttt{cd} in das bin Verzeichnis der Emacs-Installation gewechselt ist. 
+	\item aus der Kommandozeile aus einem beliebigen Verzeichnis, wenn man vorher die PATH-Variable der Windows-Installation angepasst hat. Siehe die folgende Box \enquote{Anpassung der PATH-Variablen}
+\end{itemize}
+
+\begin{tcolorbox}[title={Anpassung der PATH-Variablen}]
+
+eee
+
+\end{tcolorbox}
+
+Beenden kann man Emacs ebenfalls auf verschiedene Arten:
+
+\begin{itemize}
+	\item Durch Drücken des Schließen-Knopfes 
+	\item Durch Ausführen des "Quit" Menü-Eintrags im \texttt{File}-Menü
+	\item Durch Ausführen des Befehls  \LKeyAltX{x} \texttt{save-buffers-kill-terminal}
+	\item Durch Ausführen der Tastensequenz \LKeyStrgX{x} \LKeyStrgX{c}; dies ist die vordefinierte Tastenkombination für \LKeyAltX{x} \texttt{save-buffers-kill-terminal}
+
+\end{itemize}
+
+In jedem dieser Fälle fragt Emacs nach, falls es noch Buffer gibt, die noch nicht gespeichert wurden. 
+Wer in keinem Fall gefragt werden möchte, selbst wenn es noch ungesicherte Buffer gibt, kann \LKeyAltX{x} \texttt{kill-emacs} ausführen oder sogar -- was nicht empfehlenswert ist -- die Standardtastenkombination \LKeyStrgX{x} \LKeyStrgX{c} mit diesem Befehl überschreiben.
 
 \section{Laden und Speichern}
+
+Mittels Maus lädt man Dateien entweder über den Menüeintrag \enquote{Open File} im File-Menü oder durch Drücken des Öffnen-Symbols in der Symbolleiste, siehe folgendes Bild. Startet man Emacs von der Kommandozeile aus, so lässt sich der Dateiname auch als Parameter übergeben, wobei gilt: Ist die Datei nicht vorhanden, so wird ein entsprechender Buffer erzeugt, der beim Speichern eben diese Datei schreibt, wenn der User Schreibrechte hat.
+
+Der eigentliche Emacs-Weg für das Öffnen liegt aber nicht darin, die Maus von A nach B zu schubsen, wie bei allen weiteren Aktionen gibt es auch hier entsprechende Tastenkombinationen. Im Fall des Öffnens bzw. Erstellens einer Datei lautet diese Tastenkombination \LKeyStrgX{x} \LKeyStrgX{f}, was ein Shortcut für den Befehl \texttt{find-file} ist, der auch über \LKeyAltX{x} \texttt{find-file} ausgeführt werden kann.
+
+Zusätzlich zum Laden bzw. Erstellen eines Buffers über \texttt{find-file} gibt es noch die Möglichkeit, über \LKeyStrgX{x} \texttt{~b <Buffername>} einen Buffer neu zu erstellen, wenn noch kein Buffer dieses Namens im Speicher existiert.
+
+Für das Speichern von Dateien bietet Emacs die folgenden Möglichkeiten an
+
+\begin{itemize}
+	\item die beiden Menü-Einträge im File-Menü, \enquote{Save} und \enquote{Save As}, um Dateien unter dem bisherigen Namen bzw. einem neuen Namen zu speichern
+	\item das entsprechende Symbol in der Symbolleiste
+
+\item \LKeyStrgX{x} \LKeyStrgX{s} für den Shortcut zum Befehl \texttt{save-buffer} 
+
+\item \LKeyStrgX{x} \texttt{s} für den Shortcut zum Befehl \texttt{save-some-buffers}, was einem \enquote{Speichere alle Buffer} entspricht 
+\item \LKeyStrgX{x} \LKeyStrgX{w} für den \enquote{Speichern als}-Befehl \texttt{write-buffer}
+\item 
+\item 
+\item 
+\end{itemize}
+
 
 \section{Bewegen innerhalb der Datei und zwischen den Buffern}
 
 \section{Suchen und Ersetzen}
 
+\section{Das eingebaute Hilfesystem}
+
+
+\section{Zusammenfassung}
+
+Hier die wichtigsten Erkenntnisse des 
+
+
 \chapter{Konfiguration}
+
+% https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Location-of-init-file.html
 
 \section{Manuelle Konfiguration von Paketen}
 
@@ -276,7 +370,7 @@ Das eingebaute Lernprogramm
 
 \section{Sweave}
 
-\section{Spielen im Emacs}
+\section{Spielen im Emacs}\label{sec:spielen}
 
 \chapter{Programmierung}
 

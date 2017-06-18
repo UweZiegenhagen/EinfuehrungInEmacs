@@ -117,7 +117,8 @@
 }
 
 
-\usepackage[]{tcolorbox}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
 %\usepackage[]{menukeys}
 
 %\usepackage[style=authortitle-dw,backend=bibtex8]{biblatex}%authortitle-icomp
@@ -135,16 +136,26 @@
 
 \tableofcontents
 
+\listoffigures
+
+\listoftables
+
+\listoftodos
 
 \chapter*{Vorwort}
 
-Der vorliegende Text ist aus der Erkenntnis entstanden, dass es anscheinend kein aktuelles Emacs-Buch gibt, das die aktuellen Entwicklungen im Emacs-Universum behandelt. 
-Beschreibungen von \texttt{use-package} und anderen Paketen finden sich oft nur online und meist auch nur auf Englisch. 
+Der vorliegende Text ist aus der Erkenntnis entstanden, dass es anscheinend kein aktuelles Emacs-Buch gibt, das die Entwicklungen der letzten Jahre im Emacs-Universum behandelt. 
+Beschreibungen von \texttt{use-package} und anderen Paketen finden sich oft nur online und meist auch nur auf Englisch.
 
 Das Skript soll daher eine Einführung in Emacs und nützliche Emacs-Pakete geben. 
-Der Fokus liegt dabei auf Windows, da ich mit Emacs hauptsächlich unter Windows arbeite,  sofern möglich werden aber auch die entsprechenden Hinweise für Linux und Mac OS X gegeben. 
+Der Fokus liegt dabei auf Windows, da ich persönlich mit Emacs hauptsächlich unter Windows arbeite,  sofern möglich werden aber auch die entsprechenden Hinweise für Linux und Mac OS X gegeben. 
 
 Es können nicht alle möglichen Befehle und Befehlskombinationen vorgestellt werden, die Emacs und die verschiedenen Emacs-Pakete bieten, dazu sind es schlichtweg zu viele. Vielmehr möchte ich die wichtigsten Befehle zeigen, die man im Alltag benötigt.
+
+\vfill
+
+Köln, den \today \hfill Uwe Ziegenhagen
+\clearpage
 
 \section*{Konventionen}
 
@@ -201,15 +212,14 @@ dfsfs
 
 Heute, im Jahr 2017, ist Emacs in Version 25.2 angekommen, diese Version ist auch die Basis für dieses Skript.
 
-Einige Worte noch zum immerwährenden Kampf\footnote{siehe \url{https://de.wikipedia.org/wiki/Editor_War}} zwischen Emacs und VI/VIM: Wenngleich ich auch Emacs jedem VI bzw. VIM vorziehe (sonst würde dieses Skript letztere behandeln), so sind Grundkenntnisse in VI oder ED (dem Vorgänger von VI) ratsam. 
+Einige Worte noch zum immerwährenden \enquote{Kampf}\footnote{siehe \url{https://de.wikipedia.org/wiki/Editor_War}} zwischen Emacs und VI/VIM: Wenngleich ich auch Emacs jedem VI bzw. VIM vorziehe (sonst würde dieses Skript ja VIM und nicht Emacs behandeln), so sind Grundkenntnisse in VI oder ED (dem Vorgänger von VI) sehr ratsam. 
 Im Appendix findet sich daher ein kurzer Abriss zu den wichtigsten Funktionen.
 
 \chapter{Grundlagen}
 
-\section{Installation}
+\section{Installation unter Windows}
 
-Die Installation von Emacs ist recht einfach. 
-Man besucht die Downloadseite von Emacs unter \url{https://www.gnu.org/software/emacs/download.html}, wo verschiedene Links auf GNU Spiegelserver, u.\,a. zum Beispiel \url{https://www.gnu.org/software/emacs/download.html} angegeben sind. 
+Die Installation von Emacs ist recht einfach. Man besucht die Downloadseite von Emacs unter \url{https://www.gnu.org/software/emacs/download.html}, wo verschiedene Links auf GNU Spiegelserver, u.\,a. zum Beispiel \url{https://www.gnu.org/software/emacs/download.html} angegeben sind. 
 Beim Besuch einer dieser Seiten wird das entsprechende Verzeichnis des Webservers aufgelistet, hier wählt man dann einfach die Version mit der höchsten Versionsnummer für das eigene Betriebssystem. 
 Nutzer der 32-Bit-Version von Windows wählen die ZIP-Datei, die auf \enquote{i686} endet, Nutzer der 64-Bit-Version die ZIP-Datei, die auf \enquote{64} endet.
 
@@ -258,6 +268,22 @@ Der übliche Installationsweg wird jedoch die lokale Installation sein, persönl
 \item[var] Enthält weitere Unterordner mit den Spielstand-Dateien für Tetris und Snake, siehe Abschnitt \ref{sec:spielen} auf Seite \pageref{sec:spielen}.
 \end{description}
 
+\section{Installation unter Linux}
+
+Emacs ist in den Paketquellen der gängigen Distributionen enthalten, die Installation über den jeweiligen Paketmanager daher auch die empfohlene Option. Persönlich nutze ich überwiegend Xubuntu, hier reichen die folgenden Befehle:
+
+\begin{enumerate}
+\item \texttt{sudo apt-get update}
+\item \texttt{sudo apt-get install emacs}
+\end{enumerate}
+
+\section{Installation unter Mac OS X}
+
+Eine Emacs-Distribution findet man beispielsweise unter \url{https://emacsformacosx.com}
+Man lädt die DMG-Datei herunter und 
+
+\todo{ausprobieren auf dem Macbook}
+
 \section{Deinstallation}
 
 Sollte der Leser jemals in die Verlegenheit kommen, Emacs löschen zu müssen, so reicht es aus, das komplette Installationsverzeichnis zu löschen. Da Emacs wie oben erwähnt komplett portabel ist, werden keine Informationen in irgendwelche System-Verzeichnisse geschrieben.
@@ -289,16 +315,56 @@ Emacs kann man auf verschiedene Arten starten:
 	\item aus der Kommandozeile aus einem beliebigen Verzeichnis, wenn man vorher die PATH-Variable der Windows-Installation angepasst hat. Siehe die folgende Box \enquote{Anpassung der PATH-Variablen}
 \end{itemize}
 
-\begin{tcolorbox}[title={Anpassung der PATH-Variablen}]
+\begin{tcolorbox}[title={Anpassung der PATH-Variablen unter Windows},breakable]
+Unter Windows 10 kann man am einfachsten die Pfad-Variable, die für die Suche nach ausführbaren Dateien genutzt wird, wie folgt editieren: 
 
-eee
+\begin{enumerate}
+\item Man öffnet die Systemsteuerung und gibt im Suchfenster \enquote{Umgebung} ein.
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Bilder/path-01}
+\end{center}
+
+\item Im sich öffnenden Dropdown-Menü wählt man entweder den Eintrag \enquote{Systemumgebungsvariablen bearbeiten} aus, wenn der Pfad für alle Nutzer des Rechners angepasst werden soll oder \enquote{Umgebungsvariablen für dieses Konto bearbeiten}, wenn der Pfad nur für den aktuellen Nutzer angepasst werden soll
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Bilder/path-03}
+\end{center}
+
+
+\item Im \enquote{Umgebungsvariablen} Menü wählt man den Eintrag \enquote{Path} und geht auf \enquote{Bearbeiten}
+\item Im folgenden Menü klickt man auf \enquote{Neu} und fügt den Pfad zur \texttt{Emacs.exe} -- bei mir \texttt{c:\textbackslash emacs\textbackslash bin} hinzu
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Bilder/path-02}
+\end{center}
+
+
+\end{enumerate}
+
+Startet man jetzt eine neue Eingabeaufforderung (aka \enquote{DOS-Box}), so kann man Emacs jetzt aus jedem Verzeichnis heraus starten, ein manueller Wechsel nach \texttt{c:\textbackslash emacs\textbackslash bin} ist nicht mehr notwendig.
 
 \end{tcolorbox}
 
-Beenden kann man Emacs ebenfalls auf verschiedene Arten:
+\begin{figure}
+\begin{center}
+\includegraphics[width=\textwidth]{Bilder/emacs-01}
+\caption{Emacs 25.2 nach dem Start}\label{fig:emacs-01}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=\textwidth]{Bilder/emacs-02}
+\caption{Emacs 25.2 nach dem Start im Kommandozeilenmodus}\label{fig:emacs-02}
+\end{center}
+\end{figure}
+
+
+Beenden lässt sich Emacs ebenfalls auf verschiedene Arten:
 
 \begin{itemize}
-	\item Durch Drücken des Schließen-Knopfes 
+	\item Durch Drücken des Schließen-Knopfes
 	\item Durch Ausführen des "Quit" Menü-Eintrags im \texttt{File}-Menü
 	\item Durch Ausführen des Befehls  \LKeyAltX{x} \texttt{save-buffers-kill-terminal}
 	\item Durch Ausführen der Tastensequenz \LKeyStrgX{x} \LKeyStrgX{c}; dies ist die vordefinierte Tastenkombination für \LKeyAltX{x} \texttt{save-buffers-kill-terminal}
@@ -332,11 +398,15 @@ Für das Speichern von Dateien bietet Emacs die folgenden Möglichkeiten an
 \end{itemize}
 
 
-\section{Bewegen innerhalb der Datei und zwischen den Buffern}
+\section{Bewegen in der Datei und zwischen Buffern}
+
+
+
 
 \section{Suchen und Ersetzen}
 
 \section{Das eingebaute Hilfesystem}
+
 
 
 \section{Zusammenfassung}

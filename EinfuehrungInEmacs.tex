@@ -204,11 +204,13 @@ MultiEmacs war in LISP geschrieben, auch Erweiterungen waren in LISP geschrieben
 Geschrieben von Richard Stallman in C nutzte er EmacsLisp als Sprache für Erweiterungen.
 Die erste weithin verfügbare Version war dann Emacs 15.34, die 1985 erschien und bald der Standard für Emacs unter Unix war.
 
-\begin{tcolorbox}[title={Wissen: Richard Stallman und die GNU Foundation},arc=0pt]
-dfsfs
+\begin{tcolorbox}[title={Wissen: Richard Stallman, GNU, und die Free Software Foundation},arc=0pt]
+Richard Stallman (* 16.03.1953) ist ein US-amerikanischer Programmierer und Aktivist, der sich für die Freiheit von Software ein. \enquote{Freiheit} bedeutet dabei, dass die Nutzer die Software ausführen, analysieren, verbreiten und abändern zu dürfen. 
 
+Stallman hat neben der Arbeit an Emacs das GNU Projekt ins Leben gerufen, den GNU C Compiler, den GNU Debugger und andere Werkzeuge entwickelt.
+
+Die FSF, die \enquote{Free Software Foundation}, ist die Organisation, die dem GNU Projekt den logistischen, finanziellen und rechtlichen Rahmen gibt. Daneben kümmert sich die FSF um die Beratung, Berichterstattung und Aufklärung rund um das Thema \enquote{freie Software}. Die FSF besitzt seit 2001 auch einen europäischen Ableger, die FSFE (\enquote{Free Software Foundation Europe}), die das Thema \enquote{Freie Software} in Europa koordiniert.
 \end{tcolorbox}
-
 
 Heute, im Jahr 2017, ist Emacs in Version 25.2 angekommen, diese Version ist auch die Basis für dieses Skript.
 
@@ -457,15 +459,16 @@ Ergänzen oder ersetzen
 
 \section{\TeX/\LaTeX}
 
-\subsection{Geschichtliches}
-
-
+\TeX\LaTeX\ ist ein professionelles Textsatzsystem, mit dem auch dieses Buch gesetzt wurde. Ähnlich alt wie Emacs nutzt \LaTeX\ Befehle, um den Text auszuzeichnen. Ein Compiler verwandelt dann den Text in PDF. Zur Installation empfiehlt es sich, die \TeX\ Live Distribution von \url{http://ww.tug.org} zu installieren. Ebenso wie den Pfad zur \texttt{emacs.exe} trägt man am besten auch den Pfad zu den \texttt{*latex.exe} Dateien in die PATH-Variable ein.
 
 \subsection{Das erste \LaTeX-Dokument}
+
+Das folgende Listing zeigt ein einfaches Beispiel für ein \LaTeX-Dokument. Gibt man den Text so mittels Emacs ein und übersetzt dann über Auc\TeX\ mit beispielsweise \texttt{pdflatex}, so sollte das PDF aus Abbildung \todo{Link} dabei entstehen. 
 
 
 \subsection{Eine Musterpräsentation mit \texttt{Beamer}}
 
+\LaTeX\ lässt sich auch vortrefflich für die Erstellung von Präsentationen nutzen. Das vermutlich fortschrittlichste Paket, \texttt{Beamer}, ist von Till Tantau. 
 
 \subsection{Ein Musterbrief mit \texttt{scrlttr2}}
 
@@ -486,8 +489,6 @@ Schnapp Dir ein Buch.
 \section{VI(M)}
 
 
-
-\section{Python}
 
 \backmatter
 

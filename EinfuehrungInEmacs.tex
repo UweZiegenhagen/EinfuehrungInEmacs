@@ -402,8 +402,31 @@ Für das Speichern von Dateien bietet Emacs die folgenden Möglichkeiten an
 
 \section{Bewegen in der Datei und zwischen Buffern}
 
+Befindet man sich in einem Buffer, kann man sich mit den Befehlen aus der folgenden Tabelle innerhalb des Buffers bewegen:
+
+\begin{table}
+\caption{Befehle zum Bewegen innerhalb des Buffers}\label{tab:moveinbuffer}
+\begin{center}
+\begin{tabular}{lll} \\ \toprule
+Bewegung um & vor & zurück \\ \midrule
+Zeichen & \LKeyStrgX{b} & \LKeyStrgX{f} \\ 
+Wort & \LKeyAltX{b} & \LKeyAltX{f} \\
+Zeile & \LKeyStrgX{p} & \LKeyStrgX{n} \\
+Satz & \LKeyAltX{a} & \LKeyAltX{e} \\
+Absatz & \LKeyAlt+\{ & \LKeyAlt+\}  \\
+Seite & \LKeyStrgX{x} [ & \LKeyStrgX{x} ] \\ \bottomrule
+\end{tabular}
+\end{center}
+\end{table}
 
 
+ 
+
+
+
+
+
+\section{Editieren von Text}
 
 \section{Suchen und Ersetzen}
 

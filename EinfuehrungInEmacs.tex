@@ -6,7 +6,6 @@
 
 \documentclass[12pt,ngerman]{scrbook}
 
-\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{booktabs}
 \usepackage{babel}
@@ -177,7 +176,7 @@ Zusatzinformationen, die mit Emacs eher am Rand zu tun haben, werden in grauen B
 
 Dieses Buch ist in \LaTeX\ gesetzt worden, dem freien Satzprogramm, das ich jedem ans Herz legen möchte, der effizient komplexe oder längere Texte verfässt. Zur Verwaltung der Dateien nutze ich github \url{https://www.github.com}), das ich mittels \textit{TortoiseSVN} bediene. 
 
-Als Schriftart wird die freie Linux Libertine-Schrift\footnote{\url{http://www.linuxlibertine.org/}} genutzt, für die Darstellung der Tastendrücke die Biolinum Keycaps.
+Als Schriftart wird die freie Linux Libertine-Schrift\footnote{\url{http://www.linuxlibertine.org/}} genutzt, für die Darstellung der Tastenkombinationen die Biolinum Keycaps.
 
 
 
@@ -223,7 +222,7 @@ Im Appendix findet sich daher ein kurzer Abriss zu den wichtigsten Funktionen.
 
 Die Installation von Emacs ist recht einfach. Man besucht die Downloadseite von Emacs unter \url{https://www.gnu.org/software/emacs/download.html}, wo verschiedene Links auf GNU Spiegelserver, u.\,a. zum Beispiel \url{https://www.gnu.org/software/emacs/download.html} angegeben sind. 
 Beim Besuch einer dieser Seiten wird das entsprechende Verzeichnis des Webservers aufgelistet, hier wählt man dann einfach die Version mit der höchsten Versionsnummer für das eigene Betriebssystem. 
-Nutzer der 32-Bit-Version von Windows wählen die ZIP-Datei, die auf \enquote{i686} endet, Nutzer der 64-Bit-Version die ZIP-Datei, die auf \enquote{64} endet.
+Nutzer der 32-Bit-Version von Windows wählen die ZIP-Datei, die auf \enquote{i686} endet, Nutzer der 64-Bit-Version die ZIP-Datei, die auf \enquote{64} endet. Diese 64-Bit-Version aus der \texttt{emacs-25.2-i686.zip} bildet die Basis für dieses Buch. 
 
 Emacs ist komplett portabel, nach dem Download der ZIP-Datei entpackt man diese in ein Verzeichnis der Wahl, das sich auch auf einem USB-Stick oder Netzlaufwerk befinden kann.
 Der übliche Installationsweg wird jedoch die lokale Installation sein, persönlich installiere ich üblicherweise nach \texttt{C:\textbackslash}. Nach dem Entpacken enthält das Verzeichnis dann die folgenden Unterordner:
@@ -233,8 +232,8 @@ Der übliche Installationsweg wird jedoch die lokale Installation sein, persönl
 
 \begin{description}
 \item[addpm.exe] fügt Emacs dem Startmenü unter Windows hinzu
-\item[ctags.exe] Werkzeug, um sogenannte \enquote{Tag}-Dateien zu erstellen \todo{Erklären}
-\item[ebrowse.exe] Werkzeug, um C++ Browse-Informationen zu erstellen.
+\item[ctags.exe] Werkzeug, um sogenannte \enquote{Tag}-Dateien für eine Reihe von Programmiersprachen zu erstellen. Dies sind Index-Dateien, die Klassen- und Variablennamen der Quellcodes enthalten und durch die man recht einfach browsen kann. 
+\item[ebrowse.exe] Werkzeug, um durch C++ Klassenhierarchien browsen zu können.
 \item[emacs.exe] die eigentliche ausführbare Datei, die sowohl im Textmodus (mittels Kommandozeilenoption \texttt{-nw}) als auch im Fenstermodus läuft. 
 \item[emacsclient.exe] Ein Kommandozeilen-Client, um mit einem Emacs-Prozess zu kommunizieren.
 \item[emacsclientw.exe] Eine Client-Version, die kein Kommandozeilen-Fenster beim Start öffnet.
@@ -257,8 +256,8 @@ Der übliche Installationsweg wird jedoch die lokale Installation sein, persönl
 \item[share] Enthält die folgenden Unterordner:
 
 \begin{description}
-\item[appdata] enthält nichts
-\item[applications] enthält nichts
+\item[appdata] ist leer
+\item[applications] ist leer
 \item[emacs] Beinhaltet weitere Unterordner u.\,a. mit den zentralen Lisp-Verzeichnissen.
 \item[icons] Emacs Icon Dateien in verschiedenen Größen und Formaten.
 \item[info] Enthält die Info-Seiten für das Emacs-eigene Hypertext-Hilfesystem. Siehe \todo{Link}
@@ -269,6 +268,16 @@ Der übliche Installationsweg wird jedoch die lokale Installation sein, persönl
 
 \item[var] Enthält weitere Unterordner mit den Spielstand-Dateien für Tetris und Snake, siehe Abschnitt \ref{sec:spielen} auf Seite \pageref{sec:spielen}.
 \end{description}
+
+Zusätzlich zu Emacs selbst empfiehlt es sich, die zusätzlichen Dateien aus der Dependencies-ZIP-Datei zu installieren. Da die Basis für dieses Buch Emacs 25.2 bildet, muss auch die passende Dependencies-Datei, \texttt{emacs-25-i686-deps.zip}, gewählt werden und in das Installationsverzeichnis zu entpacken. Sollten Dateien bereits vorhanden sein -- was bei mir bei einer Datei der Fall war -- so habe ich die neuere Datei behalten. Hat man die Dateien korrekt installiert, verfügt Emacs über eine Reihe weiterer Funktionen:
+
+\begin{itemize}
+	\item verschiedene Grafik-Typen -- PNG, JPEG, GIF, TIFF, SVG -- können jetzt in Emacs angezeigt werden
+	\item Netzwerk-Funktionen können jetzt SSL/TLS nutzen. Dies ist insbesondere für den sicheren Zugriff auf MELPA wichtig
+	\item gepackter Text kann jetzt entpackt werden
+	\item HTML und XML können geparst werden, was beispielsweise für den in Emacs eingebauten EWW Browser wichtig ist
+	\end{itemize} 
+
 
 \section{Installation unter Linux}
 
